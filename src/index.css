@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+@layer utilities {
+  .gradient-border {
+    display: inline-block;
+    padding: 2px;
+    background: linear-gradient(to right, #00ccff, #d500f9);
+    border-radius: 1rem;
+    position: relative;
+  }
+
+  .glow-effect {
+    border-radius: inherit;
+  }
+
+  .glow-effect:hover {
+    box-shadow: 0 0 10px 5px #3e1f90;
+  }
+  .button-submit {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+  }
+
+  .card-wrapper {
+    position: relative;
+    background: transparent;
+  }
+
+  .card-wrapper::before {
+    content: '';
+    position: absolute;
+    display: block;
+    /* width: 325px;
+    height: 100%; */
+    /* left: 25%;
+    top: 25%; */
+    height: 112%;
+    width: 65%;
+    background: linear-gradient(#00ccff, #d500f9);
+    animation: rotate 10s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
