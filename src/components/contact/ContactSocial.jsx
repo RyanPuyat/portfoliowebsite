@@ -8,11 +8,14 @@ import ToolTip from '../tooltip/Tooltip';
 const ContactSocial = () => {
   return (
     <div className="flex gap-4">
-      <ToolTip tooltip="LinkeIn">
-        <SocialInfo link="#" Icon={FaLinkedinIn} />
+      <ToolTip tooltip="LinkedIn">
+        <SocialInfo
+          link="https://www.linkedin.com/in/ryanpuyat"
+          Icon={FaLinkedinIn}
+        />
       </ToolTip>
       <ToolTip tooltip="Github">
-        <SocialInfo link="#" Icon={FaGithub} />
+        <SocialInfo link="https://github.com/RyanPuyat" Icon={FaGithub} />
       </ToolTip>
       <ToolTip tooltip="Upwork">
         <SocialInfo link="#" Icon={FaUpwork} />
