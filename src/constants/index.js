@@ -97,7 +97,7 @@ export const PROJECTS = [
 export const CONTACT = {
   address: 'Gyeonggido-Siheung-Si South Korea',
 
-  phoneNo: '(+82)10-5801-3734 ',
+  // phoneNo: '(+82)10-5801-3734 ',
 
   email: 'ryanpeefreelancer@gmail.com',
 };
