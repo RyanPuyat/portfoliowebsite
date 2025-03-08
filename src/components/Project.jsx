@@ -33,9 +33,6 @@ const ProjectItem = ({ project }) => {
   return (
     <div className="mb-8 lg:justify-center">
       <motion.div
-        onClick={() => {
-          window.location.href = website;
-        }}
         variants={fadeIn('right', 0.2)}
         initial="hidden"
         whileInView="show"
