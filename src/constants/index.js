@@ -37,7 +37,7 @@ export const EXPERIENCES = [
     year: '2012- 2015',
     role: 'IT Technician',
     company: 'Producers Savings Bank Corporation -Philippines',
-    description: `As an IT Technician, I maintain the technology infrastructure of the organization, ensuring that computer systems, networks, and other technology assets function smoothly and efficiently. My role involves installing, configuring, and troubleshooting hardware and software, as well as providing technical support to staff members.`,
+    description: `As an IT Technician, I maintain the organization's technology infrastructure, ensuring that computer systems, networks, and other technology assets function smoothly and efficiently. My role involves installing, configuring, and troubleshooting hardware and software and providing technical support to staff members.`,
     technologies: [
       'Hardware Knowledge',
       'Operating Systems',

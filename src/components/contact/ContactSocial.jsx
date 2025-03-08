@@ -1,7 +1,7 @@
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { FaUpwork } from 'react-icons/fa6';
-import { SiFiverr } from 'react-icons/si';
+// import { SiFiverr } from 'react-icons/si';
 import SocialInfo from './SocialInfo';
 import ToolTip from '../tooltip/Tooltip';
 
@@ -18,11 +18,14 @@ const ContactSocial = () => {
         <SocialInfo link="https://github.com/RyanPuyat" Icon={FaGithub} />
       </ToolTip>
       <ToolTip tooltip="Upwork">
-        <SocialInfo link="#" Icon={FaUpwork} />
+        <SocialInfo
+          link="https://www.upwork.com/freelancers/~01cfaba0230783c449"
+          Icon={FaUpwork}
+        />
       </ToolTip>
-      <ToolTip tooltip="Fiverr">
+      {/* <ToolTip tooltip="Fiverr">
         <SocialInfo link="#" Icon={SiFiverr} />
-      </ToolTip>
+      </ToolTip> */}
     </div>
   );
 };
