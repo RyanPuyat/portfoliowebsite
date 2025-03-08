@@ -33,6 +33,9 @@ const ProjectItem = ({ project }) => {
   return (
     <div className="mb-8 lg:justify-center">
       <motion.div
+        onClick={() => {
+          window.location.href = website;
+        }}
         variants={fadeIn('right', 0.2)}
         initial="hidden"
         whileInView="show"
@@ -44,8 +47,6 @@ const ProjectItem = ({ project }) => {
           className="group-hover:scale-200 transition-all duration-500 mb-6 rounded-t-lg mx-auto w-full h-full"
           src={image}
           alt={title}
-          // width={600}
-          // height={600}
         />
         <p className="absolute -bottom-full left-12 group-hover:bottom-44 transition-all duration-400 z-50 font-semibold">
           <span className="text-white my-5 block">{description}</span>
@@ -78,6 +79,15 @@ const ProjectItem = ({ project }) => {
           </span>
         ))}
       </motion.div>
+      <div className="mt-4 lg:hidden">
+        <a
+          href={website}
+          target="_blank"
+          className="text-neutral-800 text-lg font-medium bg-sky-300 px-2 py-1 rounded"
+        >
+          Visit {title}
+        </a>
+      </div>
     </div>
   );
 };

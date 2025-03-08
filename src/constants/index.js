@@ -78,7 +78,7 @@ export const PROJECTS = [
     title: 'Portfolio Website',
     image:
       'https://res.cloudinary.com/dyozmymsf/image/upload/v1738472612/portfolio-mockup_yug4mr.jpg',
-    website: 'https://facebook.com/',
+    website: '#',
     description:
       'A personal portfolio website showcasing projects, skills, and contact information.',
     technologies: ['HTML', 'React', 'TailwindCss'],
