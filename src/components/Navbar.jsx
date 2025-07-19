@@ -68,8 +68,8 @@ const LinkItems = ({ link, onClick }) => {
         onClick={onClick}
       >
         {link.link}
+        <div className="mx-auto bg-purple-500 w-0 group-hover:w-full h-[1px] transition-all duration-500"></div>
       </Link>
-      <div className="mx-auto bg-purple-500 w-0 group-hover:w-full h-[1px] transition-all duration-500"></div>
     </li>
   );
 };

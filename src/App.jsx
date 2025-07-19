@@ -5,7 +5,7 @@ import Technologies from './components/Technologies';
 import Project from './components/Project';
 // import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Experience from './components/Experience';
+// import Experience from './components/Experience';
 import Footer from './components/Footer';
 import { HERO_CONTENT } from './constants';
 
@@ -22,7 +22,7 @@ const App = () => {
         <About />
         <Technologies />
         <Project />
-        <Experience />
+        {/* <Experience /> */}
         {/* <Projects /> */}
         <Contact />
         <Footer />

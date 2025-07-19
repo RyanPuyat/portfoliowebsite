@@ -6,7 +6,7 @@
 export const links = [
   { link: 'About Me', section: 'about' },
   { link: 'Skills', section: 'skills' },
-  { link: 'Experience', section: 'experience' },
+  // { link: 'Experience', section: 'experience' },
   { link: 'Projects', section: 'projects' },
   { link: 'Contact', section: 'contact' },
 ];
@@ -18,42 +18,42 @@ export const HERO_CONTENT = `Welcome to my digital playground.`;
 
 export const ABOUT_TEXT = `I'm a dynamic Full Stack web developer with a bachelor's degree in computer science, skilled in Node.js, JavaScript, React, and MongoDB, which allows me to create robust and scalable web applications. With a strong background in graphic design and proficiency in Photoshop, I aim to deliver solutions that exceed expectations by integrating design artistry with programming science.`;
 
-export const EXPERIENCES = [
-  {
-    year: '2018 - 2025',
-    role: 'Full Stack Developer',
-    company: 'Soomin Corp. -South Korea',
-    description: `Played a key role in a team responsible for developing and maintaining web applications utilizing JavaScript, React.js, and Node.js.Implemented RESTful APIs and integrated MongoDB databases successfully. Contributed to defining project requirements and establishing timelines with the team.`,
-    technologies: ['Javascript', 'React.js', 'mongoDB'],
-  },
-  {
-    year: '2016 - 2018',
-    role: 'Frontend Developer',
-    company: 'AnysealTech Corp.-South Korea',
-    description: `Contributed significantly to the front-end development team by leveraging expertise in HTML, CSS, JavaScript, and Photoshop to create visually appealing and responsive user interfaces. Assisted in translating design mockups into interactive web pages and ensured cross-browser compatibility and optimized performance.`,
-    technologies: ['HTML', 'CSS', 'Javascript', 'Photoshop'],
-  },
-  {
-    year: '2012- 2015',
-    role: 'IT Technician',
-    company: 'Producers Savings Bank Corporation -Philippines',
-    description: `As an IT Technician, I maintain the organization's technology infrastructure, ensuring that computer systems, networks, and other technology assets function smoothly and efficiently. My role involves installing, configuring, and troubleshooting hardware and software and providing technical support to staff members.`,
-    technologies: [
-      'Hardware Knowledge',
-      'Operating Systems',
-      'Network Management',
-      'Software Installation and Configuration',
-      'Troubleshooting',
-    ],
-  },
-  {
-    year: '2009 - 2011',
-    role: 'Graphic Artist',
-    company: 'RL Vercons Merchant Corp. -Philippines',
-    description: `As a Graphic Artist, I specialized in creating promotional materials and various graphics for companies. Using Photoshop and CorelDRAW, I designed visually appealing content that enhanced brand identity and engaged audiences. My work included marketing collateral, digital illustrations, and social media graphics.`,
-    technologies: ['Corel Draw', 'Photoshop'],
-  },
-];
+// export const EXPERIENCES = [
+//   {
+//     year: '2018 - 2025',
+//     role: 'Full Stack Developer',
+//     company: 'Soomin Corp. -South Korea',
+//     description: `Played a key role in a team responsible for developing and maintaining web applications utilizing JavaScript, React.js, and Node.js.Implemented RESTful APIs and integrated MongoDB databases successfully. Contributed to defining project requirements and establishing timelines with the team.`,
+//     technologies: ['Javascript', 'React.js', 'mongoDB'],
+//   },
+//   {
+//     year: '2016 - 2018',
+//     role: 'Frontend Developer',
+//     company: 'AnysealTech Corp.-South Korea',
+//     description: `Contributed significantly to the front-end development team by leveraging expertise in HTML, CSS, JavaScript, and Photoshop to create visually appealing and responsive user interfaces. Assisted in translating design mockups into interactive web pages and ensured cross-browser compatibility and optimized performance.`,
+//     technologies: ['HTML', 'CSS', 'Javascript', 'Photoshop'],
+//   },
+//   {
+//     year: '2012- 2015',
+//     role: 'IT Technician',
+//     company: 'Producers Savings Bank Corporation -Philippines',
+//     description: `As an IT Technician, I maintain the organization's technology infrastructure, ensuring that computer systems, networks, and other technology assets function smoothly and efficiently. My role involves installing, configuring, and troubleshooting hardware and software and providing technical support to staff members.`,
+//     technologies: [
+//       'Hardware Knowledge',
+//       'Operating Systems',
+//       'Network Management',
+//       'Software Installation and Configuration',
+//       'Troubleshooting',
+//     ],
+//   },
+//   {
+//     year: '2009 - 2011',
+//     role: 'Graphic Artist',
+//     company: 'RL Vercons Merchant Corp. -Philippines',
+//     description: `As a Graphic Artist, I specialized in creating promotional materials and various graphics for companies. Using Photoshop and CorelDRAW, I designed visually appealing content that enhanced brand identity and engaged audiences. My work included marketing collateral, digital illustrations, and social media graphics.`,
+//     technologies: ['Corel Draw', 'Photoshop'],
+//   },
+// ];
 
 export const PROJECTS = [
   {
