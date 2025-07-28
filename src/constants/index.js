@@ -66,14 +66,23 @@ export const PROJECTS = [
     technologies: ['HTML', 'CSS', 'JavasCript', 'Express.js', 'MongoDB'],
   },
   {
-    title: 'StudentMasterfiles',
+    title: 'Barneys Burger',
     image:
-      'https://res.cloudinary.com/dyozmymsf/image/upload/v1741078353/stdmaster_nzk6eg.jpg',
-    website: 'https://studentmasterfiles.vercel.app/',
+      'https://res.cloudinary.com/dyozmymsf/image/upload/barneys_k544g5.png',
+    website: 'https://barneysburger.vercel.app/',
     description:
-      'Student Masterfiles is a simple student management system built with PostgreSQL as its database backbone. This project allows for efficient CRUD (Create, Read, Update, Delete) operations on student records',
-    technologies: ['HTML', 'CSS', 'React', 'Postgres'],
+      'A straightforward website where customers can browse and order burgers.',
+    technologies: ['HTML', 'CSS', 'React', 'Express'],
   },
+  // {
+  //   title: 'StudentMasterfiles',
+  //   image:
+  //     'https://res.cloudinary.com/dyozmymsf/image/upload/v1741078353/stdmaster_nzk6eg.jpg',
+  //   website: 'https://studentmasterfiles.vercel.app/',
+  //   description:
+  //     'Student Masterfiles is a simple student management system built with PostgreSQL as its database backbone. This project allows for efficient CRUD (Create, Read, Update, Delete) operations on student records',
+  //   technologies: ['HTML', 'CSS', 'React', 'Postgres'],
+  // },
   {
     title: 'Portfolio Website',
     image:
