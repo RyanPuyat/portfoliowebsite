@@ -71,7 +71,7 @@ export const PROJECTS = [
       'https://res.cloudinary.com/dyozmymsf/image/upload/barneys_k544g5.png',
     website: 'https://barneysburger.vercel.app/',
     description:
-      'A straightforward website where customers can browse and order burgers.',
+      'A straightforward website where customers can browse and order burgers, with integrated payment functionality powered by Stripe.',
     technologies: ['HTML', 'CSS', 'React', 'Express'],
   },
   // {
