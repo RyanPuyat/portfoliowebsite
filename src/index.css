@@ -3,55 +3,69 @@
 
 :root {
   font-family: 'Inter', sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
 }
 
-@layer utilities {
-  .gradient-border {
-    display: inline-block;
-    padding: 2px;
-    background: linear-gradient(to right, #00ccff, #d500f9);
-    border-radius: 1rem;
-    position: relative;
-  }
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
 
-  .glow-effect {
-    border-radius: inherit;
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
   }
+}
 
-  .glow-effect:hover {
-    box-shadow: 0 0 10px 5px #3e1f90;
-  }
-  .button-submit {
-    width: 100%;
-    height: 50px;
-    display: inline-block;
-  }
+.glass {
+  background: rgba(255, 255, 255, 0.1); /* semi-transparent */
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-  .card-wrapper {
-    position: relative;
-    background: transparent;
-  }
+.card-wrapper {
+  position: relative;
+  background: transparent;
+}
 
-  .card-wrapper::before {
-    content: '';
-    position: absolute;
-    display: block;
-    /* width: 325px;
-    height: 100%; */
-    /* left: 25%;
-    top: 25%; */
-    height: 112%;
-    width: 65%;
-    background: linear-gradient(#00ccff, #d500f9);
-    animation: rotate 10s linear infinite;
-  }
+.card-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 183px; /* slightly larger than image */
+  height: 183px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  filter: blur(1px) brightness(1.2);
+
+  /* background: conic-gradient(#00ccff, #d500f9, #00ccff);
+   */
+  background: conic-gradient(
+    #a855f7 0deg,
+    #a855f7 60deg,
+    #ffffff 120deg,
+    rgba(255, 255, 255, 0.3) 180deg,
+    transparent 270deg,
+    #a855f7 360deg
+  );
+
+  /* animation: rotate 10s linear infinite;
+   */
+  animation: rotate 6s linear infinite, pulseTail 2s ease-in-out infinite;
+
+  z-index: 0;
 }
 
 @keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
