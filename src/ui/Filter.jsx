@@ -1,14 +1,4 @@
-interface CategoryFilterProps {
-  categories: string[];
-  selected: string;
-  onSelect: (category: string) => void;
-}
-
-export default function Filter({
-  categories,
-  selected,
-  onSelect,
-}: CategoryFilterProps) {
+export default function Filter({ categories, selected, onSelect }) {
   return (
     <div className="mb-8 flex gap-2 flex-wrap">
       {categories.map((category) => (

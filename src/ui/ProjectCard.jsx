@@ -1,15 +1,14 @@
 import { Link } from 'react-router';
-import type { Project } from '~/api/projects';
 
-function ProjectCard({ projects }: { projects: Project }) {
+function ProjectCard({ projects }) {
   return (
     <Link
       className="block transform transition duration-300 hover:scale-[1.02]"
-      to={`/projects/${projects.documentId}`}
+      to={`/projects/${projects.id}`}
     >
       <div className="glass h-full  rounded-lg overflow-hidden shadow-sm transition hover:shadow-md">
         <img
-          src={projects.imageUrl}
+          src={projects.image}
           alt={projects.title}
           className="w-full h-40 object-cover"
         />

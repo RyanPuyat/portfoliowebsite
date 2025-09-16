@@ -8,5 +8,20 @@ export async function getProjects() {
     throw new Error('Projects could not be loaded');
   }
 
-  return projects;
+  return projects || [];
+}
+
+export async function getProjectDetails(id) {
+  const { data: projects, error } = await supabase
+    .from('projects')
+    .select('*')
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.log(error);
+    throw new Error('Projects could not be loaded');
+  }
+
+  return projects || [];
 }

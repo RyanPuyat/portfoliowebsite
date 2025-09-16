@@ -1,5 +1,11 @@
+import ProjectList from '../features/projects/ProjectList';
+
 function Projects() {
-  return <div>Projects</div>;
+  return (
+    <div>
+      <ProjectList />
+    </div>
+  );
 }
 
 export default Projects;
