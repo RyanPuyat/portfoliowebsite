@@ -1,5 +1,7 @@
+import BlogDetails from '../features/blogs/BlogDetails';
+
 function Blog() {
-  return <div>Blog</div>;
+  return <BlogDetails />;
 }
 
 export default Blog;

@@ -1,5 +1,7 @@
+import BlogList from '../features/blogs/BlogList';
+
 function Blogs() {
-  return <div>Blogs</div>;
+  return <BlogList />;
 }
 
 export default Blogs;

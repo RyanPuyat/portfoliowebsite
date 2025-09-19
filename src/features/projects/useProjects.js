@@ -3,7 +3,11 @@ import { getProjects } from '../../services/apiProjects';
 import { useLocation } from 'react-router-dom';
 
 export function useProjects() {
-  const { data: allProjects, isPending } = useQuery({
+  const {
+    data: allProjects,
+    isFetching,
+    error,
+  } = useQuery({
     queryKey: ['projects'],
     queryFn: getProjects,
   });
@@ -39,6 +43,7 @@ export function useProjects() {
     categories,
     selectedCategory,
     allProjects,
-    isPending,
+    isFetching,
+    error,
   };
 }

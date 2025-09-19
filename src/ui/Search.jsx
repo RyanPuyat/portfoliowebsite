@@ -1,10 +1,4 @@
-interface SearchProps {
-  value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: 'white' | 'default';
-}
-
-function Search({ value, onChange }: SearchProps) {
+function Search({ value, onChange }) {
   return (
     <input
       type="text"

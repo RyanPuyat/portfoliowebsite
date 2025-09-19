@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 export default function ProjectDetails() {
   const { id } = useParams();
-  const { project, isPending, error } = useProjectDetails(id);
+  const { project, isFetching, error } = useProjectDetails(id);
   // console.log(project);
 
   if (error) {
@@ -14,7 +14,7 @@ export default function ProjectDetails() {
     return null;
   }
 
-  if (isPending) return <Spinner />;
+  if (isFetching) return <Spinner />;
 
   return (
     <>
@@ -53,8 +53,6 @@ export default function ProjectDetails() {
             View Live Site{' '}
           </a>
         </div>
-
-        <div></div>
       </div>
     </>
   );

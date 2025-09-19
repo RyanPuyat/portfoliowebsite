@@ -1,7 +1,6 @@
 import { Link } from 'react-router';
-// import type { PostMeta } from '~/api/blog';
 
-function PostCard(post) {
+function PostCard({ post }) {
   return (
     <div>
       <article

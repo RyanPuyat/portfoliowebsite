@@ -1,6 +1,19 @@
-import PostCard from './PostCard';
+import toast from 'react-hot-toast';
+import PostCard from '../../ui/PostCard';
+import useBlogs from './useBlogs';
+import Spinner from '../../ui/Spinner';
 
-function BlogPreview({ posts, count }) {
+function BlogPreview() {
+  const { posts, isPending, error } = useBlogs();
+  const count = 2;
+
+  if (error) {
+    toast.error(error);
+    return null;
+  }
+
+  if (isPending) return <Spinner />;
+
   const latestPosts = posts
     .sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();

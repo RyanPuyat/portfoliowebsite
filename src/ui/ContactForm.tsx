@@ -1,8 +1,10 @@
 import { FaUser, FaEnvelope } from 'react-icons/fa';
 import { useEmailForm } from '../hooks/useEmailForm';
+import { useState } from 'react';
 
 const ContactForm = () => {
-  const { formRef, sendEmail } = useEmailForm();
+  const [isSubmitting, setIsSubmmiting] = useState(false);
+  const { formRef, sendEmail } = useEmailForm(setIsSubmmiting);
 
   return (
     <div className="py-5 w-auto">
@@ -24,7 +26,7 @@ const ContactForm = () => {
             className="flex-grow outline-none"
             name="from_email"
             type="email"
-            placeholder="example@sample.com"
+            placeholder="Your Email"
             required
           />
         </div>
@@ -37,14 +39,15 @@ const ContactForm = () => {
           required
         ></textarea>
 
-        <div className="gradient-border">
-          <button
-            type="submit"
-            className="button-submit px-3 py-2 rounded-md text-sm transition bg-purple-600 text-white hover:bg-purple-700"
-          >
-            Submit
-          </button>
-        </div>
+        {/* <div className="gradient-border"> */}
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="button-submit px-3 py-2 rounded-md text-sm transition bg-purple-600 text-white hover:bg-purple-700"
+        >
+          {isSubmitting ? 'Submitting...' : 'Submit'}
+        </button>
+        {/* </div> */}
       </form>
     </div>
   );

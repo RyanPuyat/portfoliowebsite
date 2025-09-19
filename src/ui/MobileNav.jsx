@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router';
 
-function MobileNav(navOpen) {
+function MobileNav({ navOpen }) {
   const base = 'text-purple-500';
   const hover = 'hover:text-purple-500 transition-all duration-500';
   const underline = 'mx-auto bg-purple-500 h-[1px] transition-all duration-500';

@@ -13,23 +13,15 @@ function Project() {
     totalPages,
     categories,
     selectedCategory,
-    isPending,
+    isFetching,
     error,
   } = useProjects();
   const navigate = useNavigate();
 
-  if (isPending) return <Spinner />;
+  if (isFetching) return <Spinner />;
   if (error) {
     toast.error(error);
-    return {
-      projects: [],
-      totalPages: 0,
-      categories: ['All'],
-      selectedCategory: 'All',
-      allProjects: [],
-      isPending,
-      error,
-    };
+    return null;
   }
 
   const handleCategorySelect = (category) => {

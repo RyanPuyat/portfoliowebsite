@@ -7,17 +7,18 @@ export function useProjectDetails(id) {
 
   const {
     data: project,
-    isPending,
+    isFetching,
     error,
   } = useQuery({
     queryKey: ['project'],
     queryFn: () => getProjectDetails(id),
     enabled: !!id,
+    keepPreviousData: false,
   });
 
   return {
     project,
-    isPending,
+    isFetching,
     error,
   };
 }

@@ -1,20 +1,22 @@
 import supabase from './supabase';
 
 export async function getBlogPosts() {
-  let { data: blogpost, error } = await supabase.from('blogpost').select('*');
+  const { data: blogpost, error } = await supabase.from('blogpost').select('*');
 
   if (error) {
     console.log(error);
     throw new Error('Blogpost could not be loaded');
   }
 
-  return blogpost;
+  return blogpost || [];
 }
 
-export async function getBlogsDetails() {
+export async function getBlogsDetails(slug) {
   let { data: postdetails, error } = await supabase
     .from('postdetails')
-    .select('*');
+    .select('*')
+    .eq('slug', slug)
+    .single();
 
   if (error) {
     console.log(error);

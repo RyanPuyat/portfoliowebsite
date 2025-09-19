@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import Spinner from '../../ui/Spinner';
 
 function FeaturedProjects() {
-  const { allProjects, isPending, error } = useProjects();
+  const { allProjects, isFetching, error } = useProjects();
   const count = 2;
 
   if (error) {
@@ -24,7 +24,7 @@ function FeaturedProjects() {
         Featured Projects
       </h2>
       <div className="relative">
-        {isPending ? (
+        {isFetching ? (
           <div className="absolute inset-0 flex justify-center items-center">
             <Spinner />
           </div>
