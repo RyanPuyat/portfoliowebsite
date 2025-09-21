@@ -4,10 +4,7 @@ import Aurora from './Aurora';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
 
-const Hero = ({
-  name = 'Ryan Puyat',
-  text = `Welcome to my digital playground`,
-}) => {
+const Hero = ({ name = 'Ryan', text = `Welcome to my digital playground` }) => {
   const {
     backgroundImage,
     heroBottomShadow,
@@ -27,7 +24,7 @@ const Hero = ({
       }}
       className="mt-[calc(80px+80px)] relative  md:mt-20 text-center  py-20 px-4 bg-gray-900 text-white transition-colors duration-300"
     >
-      <h2 className="text-5xl mb-6">Hey, I'm {name} 👋</h2>
+      <h2 className="text-5xl mb-6">Hey, I&apos;m {name} 👋</h2>
       <p className="text-3xl text-gray-300 max-w-2xl mx-auto mb-8">{text}</p>
       <div className="flex justify-center gap-4">
         <MotionLink
