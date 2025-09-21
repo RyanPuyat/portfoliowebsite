@@ -38,7 +38,7 @@ function BlogDetails() {
             <img
               src={post.image01}
               alt="image01"
-              className="w-[1000] h-[360px] mb-4 object-cover"
+              className="w-full max-w-4xl h-auto object-cover rounded"
             />
           )}
         </div>
@@ -52,7 +52,7 @@ function BlogDetails() {
             <img
               src={post.image02}
               alt="image01"
-              className="w-[1000] h-[360px]  object-cover"
+              className="w-full max-w-4xl h-auto mb-4 object-cover rounded"
             />
           )}
         </div>
