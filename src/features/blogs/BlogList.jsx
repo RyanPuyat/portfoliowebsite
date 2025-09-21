@@ -22,7 +22,7 @@ function BlogList() {
   function handleSearch(e) {
     const query = e.target.value;
     setSearchQuery(query);
-    navigate(`search=${encodeURIComponent(query)}&page=1`);
+    navigate(`?search=${encodeURIComponent(query)}&page=1`);
   }
   return (
     <>
