@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useProjectDetails } from './useProjectDetails';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Spinner from '../../ui/Spinner';
 import toast from 'react-hot-toast';
 
@@ -48,10 +48,18 @@ export default function ProjectDetails() {
           <a
             href={project.url}
             target="_blank"
-            className="inline-block text-white bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded transition"
+            className="inline-block text-white bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded transition mb-6"
           >
             View Live Site{' '}
           </a>
+
+          <Link
+            to="/blog"
+            className="flex items-center text-purple-500 hover:text-purple-700 mb-6 transition"
+          >
+            Go to blog
+            <FaArrowRight className="ml-2" />
+          </Link>
         </div>
       </div>
     </>
