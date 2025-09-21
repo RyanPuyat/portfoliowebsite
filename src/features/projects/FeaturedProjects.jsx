@@ -21,7 +21,7 @@ function FeaturedProjects() {
   return (
     <section>
       <h2 className="text-2xl font-bold mb-6 text-gray200">
-        Featured Projects
+        ⚡Featured Projects
       </h2>
       <div className="relative">
         {isFetching ? (
