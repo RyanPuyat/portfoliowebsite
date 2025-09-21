@@ -13,10 +13,6 @@ function useBlogDetails(slug) {
     keepPreviousData: false,
   });
 
-  console.log(Array.isArray(post));
-
-  console.log(post);
-
   return { post, isFetching, error };
 }
 
