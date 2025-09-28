@@ -45,13 +45,13 @@
 import { TagCloud } from 'react-tagcloud';
 
 const data = [
-  { value: 'React', count: 25 },
+  { value: 'React', count: 30 },
   { value: 'MongoDB', count: 18 },
   { value: 'JavaScript', count: 38 },
   { value: 'Nginx', count: 30 },
   { value: 'Nodejs', count: 28 },
   { value: 'Express.js', count: 25 },
-  { value: 'HTML5', count: 33 },
+  { value: 'HTML5', count: 25 },
   { value: 'CSS3', count: 20 },
   { value: 'Webpack', count: 22 },
   { value: 'Vite', count: 7 },
@@ -67,7 +67,8 @@ const data = [
   { value: 'Photoshop', count: 14 },
   { value: 'XD', count: 35 },
   { value: 'Stripe', count: 30 },
-  { value: 'strapi', count: 35 },
+  { value: 'strapi', count: 20 },
+  { value: 'NextJS', count: 35 },
 ];
 
 export default function TagCloudComponent() {
