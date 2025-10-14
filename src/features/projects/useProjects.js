@@ -12,7 +12,7 @@ export function useProjects() {
     queryFn: getProjects,
   });
 
-  const PAGE_SIZE = 2;
+  const PAGE_SIZE = 4;
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const page = Number(queryParams.get('page')) || 1;
