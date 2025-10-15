@@ -15,9 +15,9 @@ export default function MainNav() {
         >
           <Logo />
           <Navbar navOpen={navOpen} onToggle={() => setNavOpen(!navOpen)} />
+          <MobileNav navOpen={navOpen} setNavOpen={setNavOpen} />
         </div>
       </nav>
-      <MobileNav navOpen={navOpen} />
     </>
   );
 }

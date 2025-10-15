@@ -53,6 +53,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const offscreen = document.createElement('canvas');
       offscreen.width = 40;
       offscreen.height = 40;
+
       const offCtx = offscreen.getContext('2d');
 
       if (offCtx) {
@@ -67,6 +68,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             // Create circular clipping path
             offCtx.beginPath();
             offCtx.arc(20, 20, 20, 0, Math.PI * 2);
+
             offCtx.closePath();
             offCtx.clip();
 
