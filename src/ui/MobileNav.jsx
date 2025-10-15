@@ -12,11 +12,11 @@ function MobileNav({ navOpen, setNavOpen }) {
     const handleClose = () => setNavOpen(false);
 
     window.addEventListener('scroll', handleClose);
-    window.addEventListener('touchstart', handleClose);
+    // window.addEventListener('touchstart', handleClose);
 
     return () => {
       window.removeEventListener('scroll', handleClose);
-      window.removeEventListener('touchstart', handleClose);
+      // window.removeEventListener('touchstart', handleClose);
     };
   }, [navOpen, setNavOpen]);
 
@@ -33,7 +33,7 @@ function MobileNav({ navOpen, setNavOpen }) {
                 key={index}
                 to={path}
                 onClick={() => setNavOpen(false)}
-                onScroll={() => navOpen(false)}
+                // onScroll={() => navOpen(false)}
               >
                 {({ isActive }) => (
                   <span className="group relative inline-block cursor-pointer text-sm">
