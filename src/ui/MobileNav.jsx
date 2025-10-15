@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 function MobileNav({ navOpen, setNavOpen }) {
   const base = 'text-purple-500';
@@ -23,7 +23,10 @@ function MobileNav({ navOpen, setNavOpen }) {
   return (
     <>
       {navOpen && (
-        <div className="absolute top-[80px] left-0 w-full z-40 bg-opacity-70 backdrop-blur-md px-6 py-4 space-y-2 space-x-4 text-center md:hidden">
+        <div
+          className="absolute top-[80px] left-0 w-full z-50 bg-gray-950 bg-opacity-50
+ px-6 py-4 space-y-2 space-x-4 text-center md:hidden"
+        >
           {['/', '/projects', '/blog', '/about', '/contact'].map(
             (path, index) => (
               <NavLink
