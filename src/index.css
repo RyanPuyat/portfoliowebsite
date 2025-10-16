@@ -23,7 +23,7 @@ body {
   background: rgba(255, 255, 255, 0.1); /* semi-transparent */
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(8px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
