@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import MainNav from './MainNav';
 import Particles from './Particles';
-// import Footer from './Footer';
 
 export default function AppLayout() {
   return (
@@ -20,7 +19,6 @@ export default function AppLayout() {
       <main className="flex-grow">
         <Outlet />
       </main> */}
-      {/* <Footer /> */}
     </div>
   );
 }
