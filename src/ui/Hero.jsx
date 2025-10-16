@@ -22,7 +22,7 @@ const Hero = ({ name = 'Ryan', text = `Welcome to my digital playground` }) => {
         backgroundImage,
         boxShadow: heroBottomShadow,
       }}
-      className="mt-[calc(80px+80px)] relative  md:mt-20 text-center  py-20 px-4 bg-gray-900 text-white transition-colors duration-300"
+      className="mt-20 relative text-center  py-20 px-4 bg-gray-900 text-white transition-colors duration-300"
     >
       <h2 className="text-5xl mb-6">Hey, I&apos;m {name} 👋</h2>
       <p className="text-3xl text-gray-300 max-w-2xl mx-auto mb-8">{text}</p>
