@@ -3,7 +3,7 @@ import ProfilePhoto from './ProfileImage';
 
 function AboutPreview() {
   return (
-    <section className="glass mt-12 p-10 flex flex-col lg:flex-row items-center gap-10 mb-6 ">
+    <section className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/30  mt-12 p-10 flex flex-col lg:flex-row items-center gap-10 mb-6 ">
       <div>
         <ProfilePhoto />
       </div>

@@ -19,7 +19,7 @@ function BlogDetails() {
   // const markdown = post.body.replace(/\\n/g, '\n');
 
   return (
-    <div className="max-w-[1300px] mx-auto px-6 py-12 glass">
+    <div className="max-w-[1300px] mx-auto px-6 py-12 bg-white/10 backdrop-blur-sm rounded-xl border border-white/30">
       <h1 className="text-3xl font-bold text-purple-400 mb-2">{post.title}</h1>
       <p className="text-sm text-gray-400 mb-6">
         {new Date(post.date).toLocaleDateString()}

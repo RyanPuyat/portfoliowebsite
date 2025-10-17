@@ -26,7 +26,7 @@ function BlogList() {
   }
   return (
     <>
-      <div className="glass max-w-[1300px] mx-auto mt-10 px-6 py-6 ">
+      <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/30 p-6 max-w-[1300px] mx-auto mt-10">
         <h2 className="text-4xl  text-white mb-4">Blog</h2>
         <Search value={searchQuery} onChange={handleSearch} />
         <div className="space-y-8">

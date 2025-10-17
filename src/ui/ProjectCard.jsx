@@ -6,7 +6,7 @@ function ProjectCard({ projects }) {
       className="block transform transition duration-300 hover:scale-[1.02]"
       to={`/projects/${projects.id}`}
     >
-      <div className="glass h-full  rounded-lg overflow-hidden shadow-sm transition hover:shadow-md">
+      <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/30  h-full overflow-hidden shadow-sm transition hover:shadow-md">
         <img
           src={projects.image}
           alt={projects.title}

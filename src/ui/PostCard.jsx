@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function PostCard({ post }) {
   return (
-    <div className="h-full glass rounded-lg overflow-hidden shadow-sm transition hover:shadow-md bg-gray-800 p-6  mb-4">
+    <div className="h-full bg-white/10 backdrop-blur-sm  border border-white/30 p-6 rounded-lg overflow-hidden shadow-sm transition hover:shadow-md mb-4 hover:scale-[1.02]">
       <article key={post.slug}>
         <h3 className="text-2xl font-semibold text-purple-400 truncate">
           {post.title}

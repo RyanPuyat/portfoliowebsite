@@ -11,7 +11,7 @@ import ProfilePhoto from './ProfileImage';
 
 export default function AboutPage() {
   return (
-    <div className="glass max-w-[1300px] mx-auto px-6 py-16 ">
+    <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/30  max-w-[1300px] mx-auto px-6 py-16 ">
       {/* Intro */}
 
       <div className="flex flex-col xl:flex-row xl:items-start items-center gap-10 mb-12 ">
