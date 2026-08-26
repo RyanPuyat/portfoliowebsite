@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import NetworkGraph from './NetworkGraph';
 
-const Hero = ({ name = 'Ryan', role = 'Full-stack Engineer' }) => {
+const Hero = ({ name = 'Ryan', role = 'Full-stack Developer' }) => {
   return (
     <section className="relative min-h-[86vh] flex flex-col justify-center px-6 sm:px-12 overflow-hidden border-b border-[var(--sig-line)]">
       <div className="absolute inset-0 z-0">
@@ -13,11 +13,13 @@ const Hero = ({ name = 'Ryan', role = 'Full-stack Engineer' }) => {
 
       <div className="relative z-10 max-w-[1300px] w-full mx-auto">
         <div className="font-mono text-xs text-[var(--sig-green)] tracking-widest mb-5">
-          <span className="text-[var(--sig-muted)]">{'>'}</span> {role.toUpperCase()}
+          <span className="text-[var(--sig-muted)]">{'>'}</span>{' '}
+          {role.toUpperCase()}
         </div>
 
         <h1 className="font-display font-semibold text-[clamp(40px,6vw,76px)] leading-[1.05] mb-6 max-w-3xl">
-          Mapping ideas into<br />
+          Mapping ideas into
+          <br />
           <span className="text-[var(--sig-green)]">working systems.</span>
         </h1>
 
