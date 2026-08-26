@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -8,15 +9,31 @@
   margin: 0;
   padding: 0;
   overflow-y: scroll;
+
+  /* IDE theme tokens */
+  --ide-bg: #1e1e1e;
+  --ide-sidebar: #232323;
+  --ide-line: #333333;
+  --ide-text: #d4d4d4;
+  --ide-muted: #6a6a6a;
+  --ide-keyword: #c586c0;
+  --ide-string: #ce9178;
+  --ide-func: #dcdcaa;
+  --ide-type: #4ec9b0;
+  --ide-num: #b5cea8;
+  --ide-accent: #f9a66c;
+  --ide-statusbar: #007acc;
+  --ide-tab-active: #1e1e1e;
+}
+
+.font-jbmono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  background: var(--ide-bg);
+  color: var(--ide-text);
 }
 
 .card-wrapper {
@@ -29,46 +46,35 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 183px; /* slightly larger than image */
+  width: 183px;
   height: 183px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   filter: blur(1px) brightness(1.2);
-
-  /* background: conic-gradient(#00ccff, #d500f9, #00ccff);
-   */
   background: conic-gradient(
-    #a855f7 0deg,
-    #a855f7 60deg,
+    var(--ide-type) 0deg,
+    var(--ide-type) 60deg,
     #ffffff 120deg,
     rgba(255, 255, 255, 0.3) 180deg,
     transparent 270deg,
-    #a855f7 360deg
+    var(--ide-type) 360deg
   );
-
-  /* animation: rotate 10s linear infinite;
-   */
   animation: rotate 6s linear infinite, pulseTail 2s ease-in-out infinite;
-
   z-index: 0;
 }
 
 @keyframes rotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .spinner-4 {
   width: 50px;
-  --b: 8px; /* the border thickness */
+  --b: 8px;
   aspect-ratio: 1;
   border-radius: 50%;
   padding: 1px;
-  background: conic-gradient(#0000 10%, #a855f7) content-box;
+  background: conic-gradient(#0000 10%, var(--ide-type)) content-box;
   -webkit-mask: repeating-conic-gradient(
       #0000 0deg,
       #000 1deg 20deg,
@@ -84,7 +90,17 @@ body {
   animation: s4 1s infinite steps(10);
 }
 @keyframes s4 {
-  to {
-    transform: rotate(1turn);
-  }
+  to { transform: rotate(1turn); }
+}
+
+.ide-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--ide-accent);
+  vertical-align: text-bottom;
+  animation: ide-blink 1s step-end infinite;
+}
+@keyframes ide-blink {
+  50% { opacity: 0; }
 }

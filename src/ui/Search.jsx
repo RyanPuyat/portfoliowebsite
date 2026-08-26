@@ -2,20 +2,12 @@ function Search({ value, onChange }) {
   return (
     <input
       type="text"
-      placeholder="Search . . ."
+      placeholder="grep -i '...'"
       value={value}
       onChange={onChange}
-      className="text-sm
-            px-4 py-2
-            border
-            border-gray-700
-            rounded-lg
-            bg-grey-800
-            font-medium
-            shadow-sm
-            mb-6
-            w-full
-            focus:outline-none focus:ring-2 focus:ring-purple-400"
+      className="font-jbmono text-sm px-4 py-2 border border-[var(--ide-line)] bg-[var(--ide-sidebar)] text-[var(--ide-text)] mb-6 w-full
+      placeholder:text-[var(--ide-muted)]
+      focus:outline-none focus:border-[var(--ide-type)]"
     />
   );
 }

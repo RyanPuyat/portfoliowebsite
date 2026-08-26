@@ -7,7 +7,6 @@ import toast from 'react-hot-toast';
 export default function ProjectDetails() {
   const { id } = useParams();
   const { project, isFetching, error } = useProjectDetails(id);
-  // console.log(project);
 
   if (error) {
     toast.error(error);
@@ -17,51 +16,50 @@ export default function ProjectDetails() {
   if (isFetching) return <Spinner />;
 
   return (
-    <>
+    <div className="bg-[var(--ide-sidebar)] border border-[var(--ide-line)] px-6 sm:px-10 py-14">
       <Link
         to="/projects"
-        className="flex items-center text-purple-500 hover:text-purple-700 mb-6 transition"
+        className="font-jbmono flex items-center gap-2 text-sm text-[var(--ide-muted)] hover:text-[var(--ide-accent)] mb-8 transition-colors"
       >
-        <FaArrowLeft className="mr-2" />
-        Back to projects
+        <FaArrowLeft />
+        back to projects
       </Link>
 
-      <div className="grid gap-8 md:grid-cols-2 items-start">
+      <div className="text-xs font-jbmono text-[var(--ide-muted)] mb-6">
+        ~/projects/{id}
+      </div>
+
+      <div className="grid gap-10 md:grid-cols-2 items-start">
         <div>
           <img
             src={project.image || '/images/no-images.png'}
             alt={project.title || 'Untitled'}
-            className="rounded-lg shadow-md"
+            className="border border-[var(--ide-line)] opacity-90"
           />
         </div>
 
         <div>
-          <h1 className="text-3xl font-bold text-purple-500 mb-4">
+          <h1 className="font-jbmono text-2xl text-[var(--ide-type)] mb-3">
             {project.title}
           </h1>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="font-jbmono text-xs text-[var(--ide-muted)] mb-6">
             {new Date(project.date).toLocaleDateString()} • {project.category}
           </p>
 
-          <p className="text-gray-200 mb-6">{project.description}</p>
+          <p className="text-[var(--ide-text)] leading-relaxed mb-8">
+            {project.description}
+          </p>
 
           <a
             href={project.url}
             target="_blank"
-            className="inline-block text-white bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded transition mb-6"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-[#2A2D2E] border border-[var(--ide-line)] text-[var(--ide-type)] px-5 py-2.5 font-jbmono text-sm hover:border-[var(--ide-type)] transition-colors"
           >
-            View Live Site{' '}
+            ▶ Run — View live site
           </a>
-
-          {/* <Link
-            to="/blog"
-            className="flex items-center text-purple-500 hover:text-purple-700 mb-6 transition"
-          >
-            Go to blog
-            <FaArrowRight className="ml-2" />
-          </Link> */}
         </div>
       </div>
-    </>
+    </div>
   );
 }

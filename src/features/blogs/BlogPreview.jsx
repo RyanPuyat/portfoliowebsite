@@ -21,11 +21,13 @@ function BlogPreview() {
     .slice(0, count);
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-6 text-gray200"> 🔥Latest Blog</h2>
+      <h2 className="font-jbmono text-sm text-[var(--ide-accent)] mb-6 flex items-center gap-2">
+        <span className="text-[var(--ide-muted)]">//</span> Latest blog
+      </h2>
 
       <div className="grid gap-6 sm:grid-cols-2 z-10">
-        {latestPosts.map((posts) => (
-          <PostCard key={posts.id} post={posts} />
+        {latestPosts.map((post) => (
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </section>

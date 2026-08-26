@@ -30,7 +30,12 @@ function Project() {
 
   return (
     <section>
-      <h2 className="text-4xl text-white mb-8">Projects</h2>
+      <div className="text-xs font-jbmono text-[var(--ide-muted)] mb-2">
+        ~/projects
+      </div>
+      <h2 className="font-jbmono text-2xl text-[var(--ide-type)] mb-8">
+        Projects
+      </h2>
 
       <Filter
         categories={categories}

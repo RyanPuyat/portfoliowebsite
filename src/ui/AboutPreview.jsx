@@ -1,27 +1,28 @@
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import ProfilePhoto from './ProfileImage';
 
 function AboutPreview() {
   return (
-    <section className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/30  mt-12 p-10 flex flex-col lg:flex-row items-center gap-10 mb-6 ">
+    <section className="bg-[var(--ide-sidebar)] border border-[var(--ide-line)] p-10 flex flex-col lg:flex-row items-center gap-10">
       <div>
         <ProfilePhoto />
       </div>
-      <div>
-        <h2 className="text-2xl  text-white mb-2">About Me</h2>
-        <p className="text-gray-200 mb-4 max-w 4xl line-clamp-2">
-          I’m a web developer based in South Korea who loves bringing ideas to
+      <div className="font-jbmono">
+        <div className="text-xs text-[var(--ide-muted)] mb-2">~/about.md</div>
+        <h2 className="text-lg text-[var(--ide-type)] mb-3">## About Me</h2>
+        <p className="text-[var(--ide-text)] mb-4 line-clamp-2 font-sans text-[15px]">
+          I'm a web developer based in South Korea who loves bringing ideas to
           life online. I enjoy building websites and apps that look great and
           actually work — from the layout and design all the way to the
-          behind-the-scenes logic. Whether I’m creating smooth user experiences
+          behind-the-scenes logic. Whether I'm creating smooth user experiences
           or solving tricky backend challenges, I get excited about turning
           complex problems into simple, useful tools that people enjoy using.
         </p>
         <Link
           to="/about"
-          className="inline-block text-purple-400 hover:underline text-sm"
+          className="inline-block text-[var(--ide-accent)] hover:underline text-sm"
         >
-          Learn More About Me →
+          // learn more →
         </Link>
       </div>
     </section>

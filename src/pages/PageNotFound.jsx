@@ -2,19 +2,20 @@ import { Link } from 'react-router-dom';
 
 function PageNotFound() {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-6 min-h-[70vh]">
-      <h1 className="text-6xl font-extrabold text-blue-400 mb-2">404</h1>
-      <h2 className="text-2xl font-semibold text-gray-100 mb-2">
-        Page Not Found 🧐
-      </h2>
-      <p className="text-gray-400 mb-6 max-w-md">
-        Sorry, the page you are looking for does not exist
-      </p>
+    <div className="flex flex-col items-center justify-center text-center px-6 min-h-[60vh] font-jbmono">
+      <div className="bg-[var(--ide-sidebar)] border border-[#F14C4C] max-w-lg w-full p-6 text-left text-sm">
+        <div className="text-[#F14C4C] mb-2">✕ ERROR</div>
+        <p className="text-[var(--ide-text)] mb-1">
+          Cannot resolve module{' '}
+          <span className="text-[var(--ide-string)]">'{window.location.pathname}'</span>
+        </p>
+        <p className="text-[var(--ide-muted)]">404 — page not found</p>
+      </div>
       <Link
         to="/"
-        className="inline-block bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 transition"
+        className="mt-8 inline-flex items-center gap-2 bg-[#2A2D2E] border border-[var(--ide-line)] text-[var(--ide-type)] px-5 py-2.5 text-sm hover:border-[var(--ide-type)] transition-colors"
       >
-        Go Home
+        ▶ Run — Go home
       </Link>
     </div>
   );

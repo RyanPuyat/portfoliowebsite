@@ -26,12 +26,19 @@ function BlogList() {
   }
   return (
     <>
-      <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/30 p-6 max-w-[1300px] mx-auto mt-10">
-        <h2 className="text-4xl  text-white mb-4">Blog</h2>
+      <div className="bg-[var(--ide-sidebar)] border border-[var(--ide-line)] p-6 sm:p-10 max-w-[1300px] mx-auto">
+        <div className="text-xs font-jbmono text-[var(--ide-muted)] mb-2">
+          ~/blog
+        </div>
+        <h2 className="font-jbmono text-2xl text-[var(--ide-type)] mb-6">
+          Blog
+        </h2>
         <Search value={searchQuery} onChange={handleSearch} />
         <div className="space-y-8">
           {posts.length === 0 ? (
-            <p className="text-gray-400 text-center">No posts found</p>
+            <p className="text-[var(--ide-muted)] text-center font-jbmono text-sm">
+              // no posts found
+            </p>
           ) : (
             posts.map((post) => <PostCard key={post.slug} post={post} />)
           )}

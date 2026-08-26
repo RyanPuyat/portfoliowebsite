@@ -1,80 +1,78 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import Aurora from './Aurora';
-import { Canvas } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
 
-const Hero = ({ name = 'Ryan', text = `Welcome to my digital playground` }) => {
-  const {
-    backgroundImage,
-    heroBottomShadow,
-    boxShadow,
-    border,
-    backgroundColor,
-    hoverShadow,
-  } = Aurora();
-
-  const MotionLink = motion.create(Link);
-
+const Hero = ({ name = 'Ryan', role = 'Full-stack Developer' }) => {
   return (
-    <motion.section
-      style={{
-        backgroundImage,
-        boxShadow: heroBottomShadow,
-      }}
-      className="mt-20 relative text-center  py-20 px-4 bg-gray-900 text-white transition-colors duration-300"
-    >
-      <h2 className="text-5xl mb-6">Hey, I&apos;m {name} 👋</h2>
-      <p className="text-3xl text-gray-300 max-w-2xl mx-auto mb-8">{text}</p>
-      <div className="flex justify-center gap-4">
-        <MotionLink
-          to="/projects"
-          style={{
-            border,
-            boxShadow,
-            backgroundColor,
-          }}
-          whileHover={{
-            boxShadow: hoverShadow.get(), // glow on hover
-            filter: 'blur(1px) brightness(1.2)',
-          }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="  z-10 text-white px-6 py-2 rounded  transition"
-        >
-          View Projects
-        </MotionLink>
-        <MotionLink
-          style={{
-            border,
-            boxShadow,
-          }}
-          to="/contact"
-          whileHover={{
-            boxShadow: hoverShadow.get(),
-            filter: 'blur(1px) brightness(1.2)',
-          }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className=" z-10 px-6 py-2 rounded hover:text-white transition"
-        >
-          Contact Me
-        </MotionLink>
+    <section className="border-b border-[var(--ide-line)]">
+      <div className="max-w-[1300px] mx-auto px-6 py-20 font-jbmono text-[15px] leading-loose">
+        <div className="flex gap-6">
+          <div className="hidden sm:block text-right text-[var(--ide-muted)] select-none">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div key={i}>{i + 1}</div>
+            ))}
+          </div>
+
+          <pre className="whitespace-pre-wrap">
+            <span className="text-[var(--ide-keyword)]">import</span>{' '}
+            {'{ Developer }'}{' '}
+            <span className="text-[var(--ide-keyword)]">from</span>{' '}
+            <span className="text-[var(--ide-string)]">&quot;./core&quot;</span>
+            ;{'\n\n'}
+            <span className="text-[var(--ide-keyword)]">
+              export default function
+            </span>{' '}
+            <span className="text-[var(--ide-func)]">{name}</span>() {'{\n'}
+            {'  '}
+            <span className="text-[var(--ide-keyword)]">return</span> ({'\n'}
+            {'    '}&lt;
+            <span className="text-[var(--ide-type)]">Developer</span>
+            {'\n'}
+            {'      '}role=
+            <span className="text-[var(--ide-string)]">&quot;{role}&quot;</span>
+            {'\n'}
+            {'      '}stack={'{['}
+            <span className="text-[var(--ide-string)]">
+              &quot;React&quot;
+            </span>,{' '}
+            <span className="text-[var(--ide-string)]">&quot;Node&quot;</span>,{' '}
+            <span className="text-[var(--ide-string)]">
+              &quot;PostgreSQL&quot;
+            </span>
+            {']}'}
+            {'\n'}
+            {'      '}based=
+            <span className="text-[var(--ide-string)]">
+              &quot;South Korea&quot;
+            </span>
+            {'\n'}
+            {'      '}status=
+            <span className="text-[var(--ide-string)]">
+              &quot;open-to-work&quot;
+            </span>
+            {'\n'}
+            {'    '}/&gt;
+            <span className="ide-cursor" />
+            {'\n'}
+            {'  '});{'\n'}
+            {'}'}
+          </pre>
+        </div>
+
+        <div className="flex flex-wrap gap-3 mt-10 ml-0 sm:ml-14">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 bg-[#2A2D2E] border border-[var(--ide-line)] text-[var(--ide-type)] px-4 py-2 text-sm hover:border-[var(--ide-type)] transition-colors"
+          >
+            ▶ Run — View projects
+          </Link>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-[#2A2D2E] border border-[var(--ide-line)] text-[var(--ide-text)] px-4 py-2 text-sm hover:border-[var(--ide-accent)] transition-colors"
+          >
+            Get in touch
+          </Link>
+        </div>
       </div>
-      <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
-        <Canvas className="h-full w-full">
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <Stars
-            radius={100} // Radius of the starfield
-            depth={500} // Depth of the starfield
-            count={2500} // Number of stars
-            factor={4} // Size factor for stars
-            saturation={0} // Saturation of stars (0-1)
-            fade // Enable/disable fading
-            speed={1}
-          />
-        </Canvas>
-      </div>
-    </motion.section>
+    </section>
   );
 };
 

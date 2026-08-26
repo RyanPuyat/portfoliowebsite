@@ -1,18 +1,13 @@
-import { Outlet } from 'react-router';
-// import Home from '../pages/Home';
+import { Outlet } from 'react-router-dom';
 import Hero from './Hero';
 
 export default function HomeLayout() {
   return (
     <>
       <Hero />
-
-      <section className="max-w-[1300px] mt-[calc(80px+80px)] md:mt-20 mx-auto px-6 my-8">
-        {/* <Home /> */}
+      <section className="max-w-[1300px] mx-auto px-6 py-10 space-y-16">
         <Outlet />
       </section>
-
-      {/* {typeof window !== 'undefined' && <TechSphere />} */}
     </>
   );
 }

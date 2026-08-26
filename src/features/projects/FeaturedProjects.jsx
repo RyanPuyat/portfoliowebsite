@@ -20,8 +20,8 @@ function FeaturedProjects() {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-6 text-gray200">
-        ⚡Featured Projects
+      <h2 className="font-jbmono text-sm text-[var(--ide-accent)] mb-6 flex items-center gap-2">
+        <span className="text-[var(--ide-muted)]">//</span> Featured projects
       </h2>
       <div className="relative">
         {isFetching ? (
@@ -29,7 +29,6 @@ function FeaturedProjects() {
             <Spinner />
           </div>
         ) : (
-          // <FeaturedProjects projects={allProjects} count={2} />
           <div className="grid gap-6 sm:grid-cols-2 z-10">
             {featured.map((project) => (
               <ProjectCard key={project.id} projects={project} />
