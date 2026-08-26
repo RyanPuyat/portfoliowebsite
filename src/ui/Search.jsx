@@ -5,9 +5,9 @@ function Search({ value, onChange }) {
       placeholder="grep -i '...'"
       value={value}
       onChange={onChange}
-      className="font-jbmono text-sm px-4 py-2 border border-[var(--ide-line)] bg-[var(--ide-sidebar)] text-[var(--ide-text)] mb-6 w-full
-      placeholder:text-[var(--ide-muted)]
-      focus:outline-none focus:border-[var(--ide-type)]"
+      className="font-mono text-sm px-4 py-2 border border-[var(--sig-line)] bg-[var(--sig-panel)] backdrop-blur text-[var(--sig-text)] mb-6 w-full
+      placeholder:text-[var(--sig-muted)]
+      focus:outline-none focus:border-[var(--sig-green)]"
     />
   );
 }

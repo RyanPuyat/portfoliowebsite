@@ -7,28 +7,18 @@ function BlogPreview() {
   const { posts, isPending, error } = useBlogs();
   const count = 2;
 
-  if (error) {
-    toast.error(error);
-    return null;
-  }
-
+  if (error) { toast.error(error); return null; }
   if (isPending) return <Spinner />;
 
   const latestPosts = posts
-    .sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, count);
+
   return (
     <section>
-      <h2 className="font-jbmono text-sm text-[var(--ide-accent)] mb-6 flex items-center gap-2">
-        <span className="text-[var(--ide-muted)]">//</span> Latest blog
-      </h2>
-
+      <h2 className="font-mono text-sm text-[var(--sig-amber)] mb-6">[ LATEST BLOG ]</h2>
       <div className="grid gap-6 sm:grid-cols-2 z-10">
-        {latestPosts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
+        {latestPosts.map((post) => <PostCard key={post.id} post={post} />)}
       </div>
     </section>
   );

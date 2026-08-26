@@ -8,40 +8,18 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 function Project() {
-  const {
-    projects,
-    totalPages,
-    categories,
-    selectedCategory,
-    isFetching,
-    error,
-  } = useProjects();
+  const { projects, totalPages, categories, selectedCategory, isFetching, error } = useProjects();
   const navigate = useNavigate();
 
   if (isFetching) return <Spinner />;
-  if (error) {
-    toast.error(error);
-    return null;
-  }
+  if (error) { toast.error(error); return null; }
 
-  const handleCategorySelect = (category) => {
-    navigate(`?category=${category}`);
-  };
+  const handleCategorySelect = (category) => navigate(`?category=${category}`);
 
   return (
     <section>
-      <div className="text-xs font-jbmono text-[var(--ide-muted)] mb-2">
-        ~/projects
-      </div>
-      <h2 className="font-jbmono text-2xl text-[var(--ide-type)] mb-8">
-        Projects
-      </h2>
-
-      <Filter
-        categories={categories}
-        selected={selectedCategory}
-        onSelect={handleCategorySelect}
-      />
+      <h2 className="font-display text-2xl text-[var(--sig-green)] mb-8">Projects</h2>
+      <Filter categories={categories} selected={selectedCategory} onSelect={handleCategorySelect} />
       <AnimatePresence mode="wait">
         <motion.div className="grid gap-6 sm:grid-cols-2 items-stretch">
           {projects?.map((project) => (
@@ -55,5 +33,4 @@ function Project() {
     </section>
   );
 }
-
 export default Project;

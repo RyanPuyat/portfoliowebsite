@@ -2,15 +2,13 @@ import { Link } from 'react-router-dom';
 
 function PostCard({ post }) {
   return (
-    <div className="h-full bg-[var(--ide-sidebar)] border border-[var(--ide-line)] p-6 overflow-hidden hover:border-[var(--ide-type)] transition-colors mb-4">
-      <article key={post.slug} className="font-jbmono">
-        <div className="text-xs text-[var(--ide-muted)] mb-2">
-          ~/blog/{post.slug}.md
-        </div>
-        <h3 className="text-lg text-[var(--ide-type)] truncate mb-1">
+    <div className="h-full bg-[var(--sig-panel)] backdrop-blur border border-[var(--sig-line)] p-6 overflow-hidden hover:border-[var(--sig-green-dim)] transition-colors mb-4">
+      <article key={post.slug}>
+        <div className="w-2 h-2 rounded-full bg-[var(--sig-amber)] shadow-[0_0_8px_var(--sig-amber)] mb-3" />
+        <h3 className="font-display text-lg text-[var(--sig-text)] truncate mb-1">
           {post.title}
         </h3>
-        <p className="text-xs text-[var(--ide-muted)] mb-3">
+        <p className="font-mono text-[11px] text-[var(--sig-muted)] mb-3">
           {new Date(post.date).toLocaleDateString()}
         </p>
         {post.image && (
@@ -20,14 +18,14 @@ function PostCard({ post }) {
             className="w-full h-48 object-cover mb-4 opacity-90"
           />
         )}
-        <p className="text-[var(--ide-text)] mb-4 line-clamp-1 font-sans text-sm">
+        <p className="text-[var(--sig-text)] mb-4 line-clamp-1 text-sm">
           {post.excerpt}
         </p>
         <Link
           to={`/blog/${post.slug}`}
-          className="text-[var(--ide-accent)] text-sm hover:underline"
+          className="font-mono text-xs text-[var(--sig-green)] hover:underline"
         >
-          // read more →
+          [ READ MORE ]
         </Link>
       </article>
     </div>

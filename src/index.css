@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
@@ -10,37 +9,68 @@
   padding: 0;
   overflow-y: scroll;
 
-  /* IDE theme tokens */
-  --ide-bg: #1e1e1e;
-  --ide-sidebar: #232323;
-  --ide-line: #333333;
-  --ide-text: #d4d4d4;
-  --ide-muted: #6a6a6a;
-  --ide-keyword: #c586c0;
-  --ide-string: #ce9178;
-  --ide-func: #dcdcaa;
-  --ide-type: #4ec9b0;
-  --ide-num: #b5cea8;
-  --ide-accent: #f9a66c;
-  --ide-statusbar: #007acc;
-  --ide-tab-active: #1e1e1e;
+  /* Signal theme tokens */
+  --sig-bg: #0a0e12;
+  --sig-panel: rgba(16, 22, 27, 0.72);
+  --sig-line: rgba(74, 222, 128, 0.18);
+  --sig-green: #4ade80;
+  --sig-green-dim: rgba(74, 222, 128, 0.55);
+  --sig-amber: #ffb454;
+  --sig-text: #d7e3dd;
+  --sig-muted: #6b7c74;
 }
 
-.font-jbmono {
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+.font-mono {
   font-family: 'JetBrains Mono', monospace;
 }
 
 html,
 body {
-  background: var(--ide-bg);
-  color: var(--ide-text);
+  background: var(--sig-bg);
+  color: var(--sig-text);
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.012) 0px,
+    rgba(255, 255, 255, 0.012) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, transparent 45%, var(--sig-bg) 95%);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sig-green);
+  box-shadow: 0 0 8px var(--sig-green);
+  animation: sig-pulse 1.6s ease-in-out infinite;
+}
+@keyframes sig-pulse {
+  50% { opacity: 0.3; }
 }
 
 .card-wrapper {
   position: relative;
   background: transparent;
 }
-
 .card-wrapper::before {
   content: '';
   position: absolute;
@@ -52,17 +82,16 @@ body {
   border-radius: 50%;
   filter: blur(1px) brightness(1.2);
   background: conic-gradient(
-    var(--ide-type) 0deg,
-    var(--ide-type) 60deg,
+    var(--sig-green) 0deg,
+    var(--sig-green) 60deg,
     #ffffff 120deg,
     rgba(255, 255, 255, 0.3) 180deg,
     transparent 270deg,
-    var(--ide-type) 360deg
+    var(--sig-green) 360deg
   );
   animation: rotate 6s linear infinite, pulseTail 2s ease-in-out infinite;
   z-index: 0;
 }
-
 @keyframes rotate {
   from { transform: translate(-50%, -50%) rotate(0deg); }
   to { transform: translate(-50%, -50%) rotate(360deg); }
@@ -74,7 +103,7 @@ body {
   aspect-ratio: 1;
   border-radius: 50%;
   padding: 1px;
-  background: conic-gradient(#0000 10%, var(--ide-type)) content-box;
+  background: conic-gradient(#0000 10%, var(--sig-green)) content-box;
   -webkit-mask: repeating-conic-gradient(
       #0000 0deg,
       #000 1deg 20deg,
@@ -91,16 +120,4 @@ body {
 }
 @keyframes s4 {
   to { transform: rotate(1turn); }
-}
-
-.ide-cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: var(--ide-accent);
-  vertical-align: text-bottom;
-  animation: ide-blink 1s step-end infinite;
-}
-@keyframes ide-blink {
-  50% { opacity: 0; }
 }

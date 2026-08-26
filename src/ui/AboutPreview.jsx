@@ -3,14 +3,15 @@ import ProfilePhoto from './ProfileImage';
 
 function AboutPreview() {
   return (
-    <section className="bg-[var(--ide-sidebar)] border border-[var(--ide-line)] p-10 flex flex-col lg:flex-row items-center gap-10">
+    <section className="bg-[var(--sig-panel)] backdrop-blur border border-[var(--sig-line)] p-10 flex flex-col lg:flex-row items-center gap-10">
       <div>
         <ProfilePhoto />
       </div>
-      <div className="font-jbmono">
-        <div className="text-xs text-[var(--ide-muted)] mb-2">~/about.md</div>
-        <h2 className="text-lg text-[var(--ide-type)] mb-3">## About Me</h2>
-        <p className="text-[var(--ide-text)] mb-4 line-clamp-2 font-sans text-[15px]">
+      <div>
+        <h2 className="font-mono text-sm text-[var(--sig-amber)] mb-3">
+          [ ABOUT ME ]
+        </h2>
+        <p className="text-[var(--sig-text)] mb-4 line-clamp-2 text-[15px]">
           I'm a web developer based in South Korea who loves bringing ideas to
           life online. I enjoy building websites and apps that look great and
           actually work — from the layout and design all the way to the
@@ -20,9 +21,9 @@ function AboutPreview() {
         </p>
         <Link
           to="/about"
-          className="inline-block text-[var(--ide-accent)] hover:underline text-sm"
+          className="font-mono text-xs text-[var(--sig-green)] hover:underline"
         >
-          // learn more →
+          [ LEARN MORE ]
         </Link>
       </div>
     </section>
