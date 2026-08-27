@@ -3,11 +3,11 @@ import { Canvas } from '@react-three/fiber';
 import NetworkGraph from './NetworkGraph';
 import { useProjects } from '../features/projects/useProjects';
 
-const Hero = ({ name = 'Ryan', role = 'Full-stack Engineer' }) => {
+const Hero = ({ name = 'Ryan', role = 'Full-stack Developer' }) => {
   const { allProjects } = useProjects();
   const projectNodes = (allProjects || [])
     .filter((p) => p.featured)
-    .slice(0, 2)
+    .slice(0, 3)
     .map((p) => ({ id: p.id, title: p.title }));
 
   return (
@@ -20,11 +20,13 @@ const Hero = ({ name = 'Ryan', role = 'Full-stack Engineer' }) => {
 
       <div className="relative z-10 max-w-[1300px] w-full mx-auto pointer-events-none">
         <div className="font-mono text-xs text-[var(--sig-green)] tracking-widest mb-5">
-          <span className="text-[var(--sig-muted)]">{'>'}</span> {role.toUpperCase()}
+          <span className="text-[var(--sig-muted)]">{'>'}</span>{' '}
+          {role.toUpperCase()}
         </div>
 
         <h1 className="font-display font-semibold text-[clamp(40px,6vw,76px)] leading-[1.05] mb-6 max-w-3xl">
-          Mapping ideas into<br />
+          Mapping ideas into
+          <br />
           <span className="text-[var(--sig-green)]">working systems.</span>
         </h1>
 

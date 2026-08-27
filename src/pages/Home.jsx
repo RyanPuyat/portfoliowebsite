@@ -1,15 +1,7 @@
-import AboutPreview from '../ui/AboutPreview';
-import FeaturedProjects from '../features/projects/FeaturedProjects';
-import BlogPreview from '../features/blogs/BlogPreview';
+import NetworkHub from '../ui/NetworkHub';
 
 function Home() {
-  return (
-    <>
-      <FeaturedProjects />
-      <AboutPreview />
-      <BlogPreview />
-    </>
-  );
+  return <NetworkHub />;
 }
 
 export default Home;
