@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { OrbitControls, Html } from '@react-three/drei';
 import { useNavigate } from 'react-router-dom';
@@ -37,8 +37,14 @@ function buildGraph(nodeCount = 46, radius = 11, maxDist = 6.5) {
   return { nodes, edges, linePositions };
 }
 
+const INTRO_SPEED = 22;   // fast spin on load
+const BASE_SPEED = 1.1;   // slow steady ambient rotation
+const INTRO_DECAY = 1.4;  // how quickly it eases down (higher = faster settle)
+
 // projectNodes: [{ id, title }] — the first N graph nodes are reserved to
-// represent real featured projects; the rest are decorative.
+// represent real featured projects and get their own clickable/hoverable
+// mesh + label; every other node renders as part of the plain point field
+// (the original, denser "starfield" look).
 export default function NetworkGraph({ nodeCount = 46, projectNodes = [] }) {
   const { nodes, edges, linePositions } = useMemo(
     () => buildGraph(nodeCount),
@@ -49,9 +55,29 @@ export default function NetworkGraph({ nodeCount = 46, projectNodes = [] }) {
   const { activeIndex, setActiveIndex } = useGraphContext();
   const [hovered, setHovered] = useState(null);
 
+  const controlsRef = useRef();
   const pulseRef = useRef();
   const nextPulseAt = useRef(0);
   const activePulse = useRef(null);
+
+  useEffect(() => {
+    if (controlsRef.current) controlsRef.current.autoRotateSpeed = INTRO_SPEED;
+  }, []);
+
+  const reservedCount = projectNodes.length;
+  const pointPositions = useMemo(() => {
+    const arr = [];
+    for (let i = reservedCount; i < nodes.length; i++) {
+      arr.push(nodes[i].x, nodes[i].y, nodes[i].z);
+    }
+    return new Float32Array(arr);
+  }, [nodes, reservedCount]);
+
+  const pointsGeom = useMemo(() => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(pointPositions, 3));
+    return g;
+  }, [pointPositions]);
 
   const lineGeom = useMemo(() => {
     const g = new THREE.BufferGeometry();
@@ -60,6 +86,14 @@ export default function NetworkGraph({ nodeCount = 46, projectNodes = [] }) {
   }, [linePositions]);
 
   useFrame((state, delta) => {
+    if (controlsRef.current) {
+      controlsRef.current.autoRotateSpeed = THREE.MathUtils.lerp(
+        controlsRef.current.autoRotateSpeed,
+        BASE_SPEED,
+        Math.min(delta * INTRO_DECAY, 1)
+      );
+    }
+
     const t = state.clock.elapsedTime;
     if (t > nextPulseAt.current) {
       nextPulseAt.current = t + 1.4;
@@ -77,16 +111,13 @@ export default function NetworkGraph({ nodeCount = 46, projectNodes = [] }) {
     }
   });
 
-  // which node index (in `nodes`) corresponds to context activeIndex (from card hover)
-  const contextNodeIndex = activeIndex != null ? activeIndex : null;
-
   return (
     <group>
       <OrbitControls
+        ref={controlsRef}
         enableZoom={false}
         enablePan={false}
         autoRotate
-        autoRotateSpeed={1.1}
         rotateSpeed={0.5}
       />
 
@@ -94,17 +125,27 @@ export default function NetworkGraph({ nodeCount = 46, projectNodes = [] }) {
         <lineBasicMaterial color="#4ade80" transparent opacity={0.12} />
       </lineSegments>
 
+      <points geometry={pointsGeom}>
+        <pointsMaterial
+          color="#4ade80"
+          size={0.22}
+          transparent
+          opacity={0.9}
+          blending={THREE.AdditiveBlending}
+          sizeAttenuation
+        />
+      </points>
+
       <mesh ref={pulseRef}>
         <sphereGeometry args={[0.14, 8, 8]} />
         <meshBasicMaterial color="#ffb454" />
       </mesh>
 
-      {nodes.map((pos, i) => {
-        const project = projectNodes[i];
+      {projectNodes.map((project, i) => {
+        const pos = nodes[i];
         const isHovered = hovered === i;
-        const isContextActive = contextNodeIndex === i;
+        const isContextActive = activeIndex === i;
         const isActive = isHovered || isContextActive;
-        const isProjectNode = Boolean(project);
 
         return (
           <mesh
@@ -113,28 +154,24 @@ export default function NetworkGraph({ nodeCount = 46, projectNodes = [] }) {
             onPointerOver={(e) => {
               e.stopPropagation();
               setHovered(i);
-              if (isProjectNode) setActiveIndex(i);
-              document.body.style.cursor = isProjectNode ? 'pointer' : 'default';
+              setActiveIndex(i);
+              document.body.style.cursor = 'pointer';
             }}
             onPointerOut={(e) => {
               e.stopPropagation();
               setHovered(null);
-              if (isProjectNode) setActiveIndex(null);
+              setActiveIndex(null);
               document.body.style.cursor = 'auto';
             }}
             onClick={(e) => {
               e.stopPropagation();
-              if (isProjectNode) navigate(`/projects/${project.id}`);
+              navigate(`/projects/${project.id}`);
             }}
-            scale={isActive ? 1.8 : isProjectNode ? 1.3 : 1}
+            scale={isActive ? 1.8 : 1.3}
           >
             <sphereGeometry args={[0.22, 12, 12]} />
-            <meshBasicMaterial
-              color={isActive ? '#ffb454' : isProjectNode ? '#4ade80' : '#3a5a4a'}
-              transparent
-              opacity={isProjectNode || isActive ? 1 : 0.7}
-            />
-            {isActive && project && (
+            <meshBasicMaterial color={isActive ? '#ffb454' : '#4ade80'} />
+            {isActive && (
               <Html center distanceFactor={22}>
                 <div className="font-mono text-[10px] whitespace-nowrap bg-[#0A0E12] border border-[var(--sig-green)] text-[var(--sig-green)] px-2 py-1 pointer-events-none">
                   {project.title}
