@@ -39,7 +39,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-3 py-2 bg-[var(--sig-panel)] border border-[var(--sig-line)] text-[var(--sig-green)] hover:border-[var(--sig-green)] transition-colors"
+          className="px-3 py-2 bg-[var(--sig-panel)] border border-[var(--sig-line)] text-[var(--sig-green)] transition-all duration-200 hover:border-[var(--sig-green)] hover:shadow-[0_0_14px_var(--sig-green-dim)] active:scale-95"
         >
           {isSubmitting ? 'Sending...' : '[ SEND MESSAGE ]'}
         </button>

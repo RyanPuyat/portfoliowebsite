@@ -21,7 +21,7 @@ function AboutPreview() {
         </p>
         <Link
           to="/about"
-          className="font-mono text-xs text-[var(--sig-green)] hover:underline"
+          className="font-mono text-xs text-[var(--sig-green)] hover:underline inline-flex items-center gap-1 transition-transform duration-200 hover:translate-x-1"
         >
           [ LEARN MORE ]
         </Link>

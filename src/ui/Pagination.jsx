@@ -18,6 +18,8 @@ function Pagination({ totalPages }) {
 
   if (totalPages <= 1) return null;
 
+  const base = 'flex items-center gap-1 px-3 py-2 border transition-all duration-150 active:scale-95';
+
   return (
     <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 mt-6 font-mono text-xs">
       <p className="text-[var(--sig-muted)]">
@@ -28,10 +30,10 @@ function Pagination({ totalPages }) {
         <button
           onClick={prevPage}
           disabled={currentPage === 1}
-          className={`flex items-center gap-1 px-3 py-2 border transition-colors ${
+          className={`${base} ${
             currentPage === 1
               ? 'border-[var(--sig-line)] text-[var(--sig-muted)] cursor-not-allowed'
-              : 'border-[var(--sig-line)] text-[var(--sig-green)] hover:border-[var(--sig-green)]'
+              : 'border-[var(--sig-line)] text-[var(--sig-green)] hover:border-[var(--sig-green)] hover:shadow-[0_0_10px_var(--sig-green-dim)]'
           }`}
         >
           <HiChevronLeft className="h-4 w-4" /><span>Previous</span>
@@ -39,10 +41,10 @@ function Pagination({ totalPages }) {
         <button
           onClick={nextPage}
           disabled={currentPage === totalPages}
-          className={`flex items-center gap-1 px-3 py-2 border transition-colors ${
+          className={`${base} ${
             currentPage === totalPages
               ? 'border-[var(--sig-line)] text-[var(--sig-muted)] cursor-not-allowed'
-              : 'border-[var(--sig-line)] text-[var(--sig-green)] hover:border-[var(--sig-green)]'
+              : 'border-[var(--sig-line)] text-[var(--sig-green)] hover:border-[var(--sig-green)] hover:shadow-[0_0_10px_var(--sig-green-dim)]'
           }`}
         >
           <span>Next</span><HiChevronRight className="h-4 w-4" />
