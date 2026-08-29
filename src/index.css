@@ -52,7 +52,11 @@ body {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(circle at 50% 30%, transparent 45%, var(--sig-bg) 95%);
+  background: radial-gradient(
+    circle at 50% 30%,
+    transparent 45%,
+    var(--sig-bg) 95%
+  );
 }
 
 .status-dot {
@@ -64,7 +68,9 @@ body {
   animation: sig-pulse 1.6s ease-in-out infinite;
 }
 @keyframes sig-pulse {
-  50% { opacity: 0.3; }
+  50% {
+    opacity: 0.3;
+  }
 }
 
 .card-wrapper {
@@ -89,12 +95,18 @@ body {
     transparent 270deg,
     var(--sig-green) 360deg
   );
-  animation: rotate 6s linear infinite, pulseTail 2s ease-in-out infinite;
+  animation:
+    rotate 6s linear infinite,
+    pulseTail 2s ease-in-out infinite;
   z-index: 0;
 }
 @keyframes rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .spinner-4 {
@@ -104,11 +116,8 @@ body {
   border-radius: 50%;
   padding: 1px;
   background: conic-gradient(#0000 10%, var(--sig-green)) content-box;
-  -webkit-mask: repeating-conic-gradient(
-      #0000 0deg,
-      #000 1deg 20deg,
-      #0000 21deg 36deg
-    ),
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
     radial-gradient(
       farthest-side,
       #0000 calc(100% - var(--b) - 1px),
@@ -119,11 +128,22 @@ body {
   animation: s4 1s infinite steps(10);
 }
 @keyframes s4 {
-  to { transform: rotate(1turn); }
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 .octagon-clip {
-  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  );
 }
 
 .octagon-trace {
@@ -131,7 +151,9 @@ body {
   animation: octagon-run 3.2s linear infinite;
 }
 @keyframes octagon-run {
-  to { stroke-dashoffset: -330; }
+  to {
+    stroke-dashoffset: -330;
+  }
 }
 
 .hub-bg-grid {
@@ -140,11 +162,19 @@ body {
     linear-gradient(90deg, rgba(74, 222, 128, 0.07) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(circle at 50% 50%, black 55%, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 55%, transparent 90%);
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    black 55%,
+    transparent 90%
+  );
 }
 
 .hub-radial-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 180, 84, 0.12), transparent 55%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 180, 84, 0.12),
+    transparent 55%
+  );
 }
 
 .radar-ring {
@@ -158,7 +188,34 @@ body {
   animation: radar-ping 4.5s ease-out infinite;
 }
 @keyframes radar-ping {
-  0% { transform: translate(-50%, -50%) scale(0.15); opacity: 0.45; }
-  70% { opacity: 0.08; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 0.45;
+  }
+  70% {
+    opacity: 0.08;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.pcb-trace {
+  stroke: rgba(74, 222, 128, 0.22);
+  stroke-width: 1.5;
+  fill: none;
+}
+.pcb-trace.active {
+  stroke: rgba(255, 180, 84, 0.55);
+  stroke-dasharray: 6 10;
+  animation: pcb-flow 2.6s linear infinite;
+}
+@keyframes pcb-flow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+.pcb-via {
+  fill: rgba(74, 222, 128, 0.3);
 }
